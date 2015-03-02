@@ -9,6 +9,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 import android.content.Context;
+import android.view.WindowManager.LayoutParams;
 
 public class IonicSoftKeyboardInput extends CordovaPlugin{
 
