@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    id="com.slim.softkeyboardinput"
+    version="1.0.3">
+    <name>Soft Keyboard Input</name>
+    <description>Ionic Soft Keyboard Input Plugin</description>
+    <license>Apache 2.0</license>
+    <keywords>Ionic,keyboard,android,soft</keywords>
+    <repo>https://github.com/sevinlim/ionic-plugins-softkeyboardinput.git</repo>
+    <issue>https://github.com/sevinlim/ionic-plugins-softkeyboardinput/issues</issue>
+
+  <js-module src="www/softkeyboardinput.js" name="SoftKeyboardInput">
+    <clobbers target="cordova.plugins.softkeyboardinput" />
+  </js-module>
+
+  <!-- android -->
+  <platform name="android">
+
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="IonicSoftKeyboardInput">
+        <param name="android-package" value="com.ionic.IonicSoftKeyboardInput" />
+      </feature>
+    </config-file>
+
+    <source-file src="src/android/IonicSoftKeyboardInput.java" target-dir="src/com/ionic/IonicSoftKeyboardInput" />
+  </platform>
+
+</plugin>
