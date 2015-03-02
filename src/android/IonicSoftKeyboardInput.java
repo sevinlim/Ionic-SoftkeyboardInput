@@ -58,26 +58,27 @@ public class IonicSoftKeyboardInput extends CordovaPlugin{
 
     public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
         if ("setInputMode".equals(action)) {
-            cordova.getThreadPool().execute(new Runnable() {
-                public void run() {
-                	if (!args.isNull(0)) {
-                		String inputMode_s = args.get(0);
-                		int inputMode_i = WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING;
-                		if (inputMode.equals("pan")) {
-                			inputMode_i = WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN;
-                		}
-                		else if (inputMode.equals("resize")) {
-                			inputMode_i = WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE;
-                		}
-                		cordova.getActivity().getWindow().setSoftInputMode(inputMode_i);
-                	}
-                	else {
-                		callbackContext.error("No arguments found");
-                	}
-                	callbackContext.success(); // Thread-safe.
-                }
-            });
-            return true;
+			if (!args.isNull(0)) {
+				final String inputMode_s = args.get(0);
+				cordova.getThreadPool().execute(new Runnable() {
+					public void run() {
+						int inputMode_i = WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING;
+						if (inputMode_s.equals("pan")) {
+							inputMode_i = WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN;
+						}
+						else if (inputMode_s.equals("resize")) {
+							inputMode_i = WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE;
+						}
+						cordova.getActivity().getWindow().setSoftInputMode(inputMode_i);
+						callbackContext.success(); // Thread-safe.
+					}
+				});
+				return true;
+			}
+			else {
+				callbackContext.error("No arguments found");
+				return false;
+			}
         }
         return false;  // Returning false results in a "MethodNotFound" error.
     }
