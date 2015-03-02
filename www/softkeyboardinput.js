@@ -7,7 +7,8 @@ var SoftKeyboardInput = function() {
 };
 
 SoftKeyboardInput.setInputMode = function(mode) {
-    exec(null, null, "IonicSoftKeyboardInput", "setInputMode", [mode]);
+	console.log("Executing soft keyboard input");
+    exec(null, null, "SoftKeyboardInput", "setInputMode", [mode]);
 };
 
 module.exports = SoftKeyboardInput;

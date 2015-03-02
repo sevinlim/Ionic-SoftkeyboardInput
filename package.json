@@ -1,18 +1,18 @@
 {
-    "version": "1.0.3",
-    "name": "com.ionic.keyboard",
-    "cordova_name": "Keyboard",
-    "description": "Ionic Keyboard Plugin",
+    "version": "1.0.1",
+    "name": "com.slim.softkeyboardinput",
+    "cordova_name": "SoftKeyboardInput",
+    "description": "Ionic Soft Keyboard Input Plugin",
     "license": "Apache 2.0",
-    "repo": "https://github.com/driftyco/ionic-plugins-keyboard.git",
-    "issue": "https://github.com/driftyco/ionic-plugins-keyboard/issues",
+    "repo": "https://github.com/sevinlim/Ionic-SoftkeyboardInput.git",
+    "issue": "https://github.com/sevinlim/Ionic-SoftkeyboardInput/issues",
     "keywords": [
         "Ionic",
-        "keyboard"
+        "keyboard",
+        "soft"
     ],
     "platforms": [
-        "android",
-        "ios"
+        "android"
     ],
     "engines": []
 }
