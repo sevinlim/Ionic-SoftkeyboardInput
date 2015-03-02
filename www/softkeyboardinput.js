@@ -7,7 +7,6 @@ var SoftKeyboardInput = function() {
 };
 
 SoftKeyboardInput.setInputMode = function(mode) {
-	console.log("Executing soft keyboard input");
     exec(null, null, "SoftKeyboardInput", "setInputMode", [mode]);
 };
 
