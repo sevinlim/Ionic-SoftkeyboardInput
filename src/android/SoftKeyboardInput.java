@@ -18,25 +18,8 @@ public class SoftKeyboardInput extends CordovaPlugin {
 			if (!args.isNull(0)) {
 				final String inputMode_s = args.get(0).toString();
 				
-// 				cordova.getActivity().runOnUiThread(new Runnable() {
-// 					public void run() {
-// 						int inputMode_i = WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING;
-// 						if (inputMode_s.equals("pan")) {
-// 							inputMode_i = WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN;
-// 							System.out.println("Set soft keyboard input mode pan");
-// 						}
-// 						else if (inputMode_s.equals("resize")) {
-// 							inputMode_i = WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE;
-// 							System.out.println("Set soft keyboard input mode resize");
-// 						}
-// 						cordova.getActivity().getWindow().setSoftInputMode(inputMode_i);
-// 						callbackContext.success(); // Thread-safe.
-// 						
-// 					}
-// 				});
-
-				
-				cordova.getThreadPool().execute(new Runnable() {
+				// run on ui thread http://stackoverflow.com/questions/18406722/changing-keepscreenon-from-javascript-in-android-cordova-app
+				cordova.getActivity().runOnUiThread(new Runnable() {
 					public void run() {
 						int inputMode_i = WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING;
 						if (inputMode_s.equals("pan")) {
@@ -49,8 +32,26 @@ public class SoftKeyboardInput extends CordovaPlugin {
 						}
 						cordova.getActivity().getWindow().setSoftInputMode(inputMode_i);
 						callbackContext.success(); // Thread-safe.
+						
 					}
 				});
+
+				
+// 				cordova.getThreadPool().execute(new Runnable() {
+// 					public void run() {
+// 						int inputMode_i = WindowManager.LayoutParams.SOFT_INPUT_ADJUST_NOTHING;
+// 						if (inputMode_s.equals("pan")) {
+// 							inputMode_i = WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN;
+// 							System.out.println("Set soft keyboard input mode pan");
+// 						}
+// 						else if (inputMode_s.equals("resize")) {
+// 							inputMode_i = WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE;
+// 							System.out.println("Set soft keyboard input mode resize");
+// 						}
+// 						cordova.getActivity().getWindow().setSoftInputMode(inputMode_i);
+// 						callbackContext.success(); // Thread-safe.
+// 					}
+// 				});
 				return true;
 			}
 			else {
