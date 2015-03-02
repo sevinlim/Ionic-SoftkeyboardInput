@@ -23,7 +23,7 @@
       </feature>
     </config-file>
 
-    <source-file src="src/android/IonicSoftKeyboardInput.java" target-dir="src/com/ionic/SoftKeyboardInput" />
+    <source-file src="src/android/SoftKeyboardInput.java" target-dir="src/com/ionic/SoftKeyboardInput" />
   </platform>
 
 </plugin>
