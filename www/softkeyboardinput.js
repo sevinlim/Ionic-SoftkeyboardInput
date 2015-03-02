@@ -10,7 +10,7 @@ SoftKeyboardInput.setInputMode = function(mode) {
     exec(null, null, "IonicSoftKeyboardInput", "setInputMode", [mode]);
 };
 
-module.exports = Keyboard;
+module.exports = SoftKeyboardInput;
 
 
 
