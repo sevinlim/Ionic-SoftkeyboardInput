@@ -18,9 +18,9 @@ Permissions
 
 #### config.xml
 
-            <feature name="Keyboard">
-                <param name="android-package" value="IonicKeyboard" onload="true" />
-            </feature>
+		<feature name="IonicSoftKeyboardInput">
+        	<param name="android-package" value="com.ionic.IonicSoftKeyboardInput" />
+      	</feature>
 
 
 SoftKeyboardInput.setInputMode
